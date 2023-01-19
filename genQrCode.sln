@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33205.214
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "genQrCode", "genQrCode\genQrCode.csproj", "{2DB49C46-0720-41B0-A20B-E18F37E770CA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QrLib", "QrLib\QrLib.csproj", "{E9A05A93-2C36-4735-BA85-CE54F56781CA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2DB49C46-0720-41B0-A20B-E18F37E770CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2DB49C46-0720-41B0-A20B-E18F37E770CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2DB49C46-0720-41B0-A20B-E18F37E770CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2DB49C46-0720-41B0-A20B-E18F37E770CA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E9A05A93-2C36-4735-BA85-CE54F56781CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E9A05A93-2C36-4735-BA85-CE54F56781CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E9A05A93-2C36-4735-BA85-CE54F56781CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E9A05A93-2C36-4735-BA85-CE54F56781CA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {85D25F0B-D392-4B4D-84ED-BE5E87F0932E}
+	EndGlobalSection
+EndGlobal
