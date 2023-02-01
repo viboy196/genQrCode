@@ -8,7 +8,7 @@ namespace QrLib
 
         private string VND = "VND";
         private string EMPTY = "";
-        public string genQrBy(string desc, string billNumber, string amount , string? expDate = null)
+        public string genQrBy( string billNumber, string amount , string? expDate = null , string? desc = null)
         {
             RequestCreateQrcode data = new RequestCreateQrcode();
 
@@ -18,13 +18,18 @@ namespace QrLib
             data.merchantName = "Cong ty procons";
             data.terminalId = "104004962202"; // Mã này cố định
             data.ccy = "704"; // Mã này cố định
-            data.desc = desc;
-            data.merchantCC = "4900";
-            data.txnId = billNumber;
+            
+            if(desc != null)
+            {
+                data.desc = desc;
+            }
             data.amount = amount;
-            data.payType = QRCode.PAY_TYPE_01;
+            data.payType = QRCode.PAY_TYPE_01; // "01"
             data.countryCode = "VN";
-            if(expDate != null)
+            data.billNumber= billNumber;
+            //data.txnId = billNumber;
+            data.merchantCC = "4900";
+            if (expDate != null)
             {
                 data.expDate = expDate;
             }
@@ -100,7 +105,7 @@ namespace QrLib
         {
             try
             {
-                string referenceID = string.Empty;
+               // string referenceID = string.Empty;
                 string pointOfMethod = ServiceConfig.POINT_OF_METHOD_TINH;
                 string purpose = request.desc;
                 string consumerID = string.Empty;
@@ -121,7 +126,7 @@ namespace QrLib
                     {
                         purpose = request.desc.Substring(0, 19);
                     }
-                    referenceID = QRCode.PAY_TYPE_01 + request.txnId;
+                   // referenceID = QRCode.PAY_TYPE_01 + request.txnId;
                     pointOfMethod = ServiceConfig.POINT_OF_METHOD_DONG;
                 }
 
@@ -130,7 +135,7 @@ namespace QrLib
                 addinalBean.mobile = request.mobile;
                 addinalBean.storeID = request.terminalName;
                 addinalBean.loyaltyNumber = EMPTY;
-                addinalBean.referenceID = referenceID;
+               // addinalBean.referenceID = referenceID;
                 addinalBean.customerID = consumerID;
                 addinalBean.purpose = RemoveDiacritics(purpose);
                 addinalBean.expDate = request.expDate;
