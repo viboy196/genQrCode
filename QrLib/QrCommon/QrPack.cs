@@ -16,10 +16,10 @@ namespace QrLib
          */
         private string padLeft(int lenght)
         {
-            //if (lenght > 99)
-            //{
-            //    throw new Exception("Lenght field can not be greater than 99");
-            //}
+            if (lenght > 99)
+            {
+                throw new Exception("Lenght field can not be greater than 99");
+            }
             return lenght.ToString().PadLeft(2, '0');
         }
 

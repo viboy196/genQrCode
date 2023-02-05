@@ -18,8 +18,9 @@ namespace QrLib
             data.merchantName = "Cong ty procons";
             data.terminalId = "104004962202"; // Mã này cố định
             data.ccy = "704"; // Mã này cố định
-            
-            if(desc != null)
+            data.merchantCC = "4900";
+             data.terminalName = "SHW";
+            if (desc != null)
             {
                 data.desc = desc;
             }
@@ -27,16 +28,13 @@ namespace QrLib
             data.payType = QRCode.PAY_TYPE_01; // "01"
             data.countryCode = "VN";
             data.billNumber= billNumber;
-            //data.txnId = billNumber;
-            data.merchantCC = "4900";
+            data.txnId = billNumber;
             if (expDate != null)
             {
                 data.expDate = expDate;
             }
             //data.customerID = "Nhập thông tin mã khách hàng của Mobifone tại đây"; // 
-
-            data.merchantCity = "HANOI";
-            data.terminalName = "Nha may nuoc song hong vinh phuc";
+           
 
 
 
@@ -105,7 +103,7 @@ namespace QrLib
         {
             try
             {
-               // string referenceID = string.Empty;
+                string referenceID = string.Empty;
                 string pointOfMethod = ServiceConfig.POINT_OF_METHOD_TINH;
                 string purpose = request.desc;
                 string consumerID = string.Empty;
@@ -126,7 +124,7 @@ namespace QrLib
                     {
                         purpose = request.desc.Substring(0, 19);
                     }
-                   // referenceID = QRCode.PAY_TYPE_01 + request.txnId;
+                    referenceID = QRCode.PAY_TYPE_01 + request.txnId;
                     pointOfMethod = ServiceConfig.POINT_OF_METHOD_DONG;
                 }
 
@@ -135,7 +133,7 @@ namespace QrLib
                 addinalBean.mobile = request.mobile;
                 addinalBean.storeID = request.terminalName;
                 addinalBean.loyaltyNumber = EMPTY;
-               // addinalBean.referenceID = referenceID;
+                addinalBean.referenceID = referenceID;
                 addinalBean.customerID = consumerID;
                 addinalBean.purpose = RemoveDiacritics(purpose);
                 addinalBean.expDate = request.expDate;
