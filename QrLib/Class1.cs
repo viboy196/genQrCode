@@ -8,7 +8,7 @@ namespace QrLib
 
         private string VND = "VND";
         private string EMPTY = "";
-        public string genQrBy( string billNumber, string amount , string? expDate = null , string? desc = null)
+        public string genQrBy(string billNumber, string amount, string? expDate = null, string? desc = null)
         {
             RequestCreateQrcode data = new RequestCreateQrcode();
 
@@ -19,7 +19,9 @@ namespace QrLib
             data.terminalId = "104004962202"; // Mã này cố định
             data.ccy = "704"; // Mã này cố định
             data.merchantCC = "4900";
-             data.terminalName = "SHW";
+            data.merchantCity = "Ha Noi";
+            data.terminalName = "SHW";
+
             if (desc != null)
             {
                 data.desc = desc;
@@ -27,14 +29,14 @@ namespace QrLib
             data.amount = amount;
             data.payType = QRCode.PAY_TYPE_01; // "01"
             data.countryCode = "VN";
-            data.billNumber= billNumber;
+            data.billNumber = billNumber;
             data.txnId = billNumber;
             if (expDate != null)
             {
                 data.expDate = expDate;
             }
             //data.customerID = "Nhập thông tin mã khách hàng của Mobifone tại đây"; // 
-           
+
 
 
 
@@ -46,7 +48,7 @@ namespace QrLib
 
             string qrData = pk.pack(req.qrBean, "").qrData;
             var str = "http://chart.apis.google.com/chart?chs=500x500&cht=qr&chl=" + qrData + "&choe=UTF-8";
-       
+
 
             return "https://chart.apis.google.com/chart?chs=500x500&cht=qr&chl=" + qrData + "&choe=UTF-8";
 
@@ -147,7 +149,7 @@ namespace QrLib
                 bean.pointOIMethod = pointOfMethod;
                 bean.merchantCode = request.merchantCode;
                 bean.masterMerchant = request.masterMerCode;
-                bean.merchantCC = request.merchantType;
+                bean.merchantCC = request.merchantCC;
                 bean.ccy = request.ccy;
                 bean.amount = request.amount;
                 bean.tipAndFee = request.tipAndFee;

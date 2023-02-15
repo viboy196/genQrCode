@@ -8,8 +8,8 @@ var strDate = _time.ToString("yyyyMMddHHmmss");
 
 var arr = new List<DauVao>();
 arr.AddRange(new DauVao[] {
-    new DauVao { giatri = "27475" ,
-                mahoadon = "124" }
+    new DauVao { giatri = "597529" ,
+                mahoadon = "126" }
 });
 var arrDaura = new List<DauRa>();
 arr.ForEach(x =>
