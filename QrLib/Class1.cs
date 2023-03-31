@@ -8,6 +8,12 @@ namespace QrLib
 
         private string VND = "VND";
         private string EMPTY = "";
+
+        public string formatString(string str)
+        {
+            var newOdd = str.Replace(" ", "%20");
+            return newOdd;
+        }
         public string genQrBy(string billNumber, string amount, string? expDate = null, string? desc = null)
         {
             RequestCreateQrcode data = new RequestCreateQrcode();
